@@ -1,1 +1,4 @@
-/lustre/user/liclab/zhangc/Taolab/xiaohuangli/ATAC_OE_ATF3/align/bam2bw.sh
+for i in `ls *sort.rmdup.bam`
+do
+	bamCoverage -b $i -o ${i/sort.rmdup.bam/bw} -p 5 --normalizeUsing RPKM &
+done

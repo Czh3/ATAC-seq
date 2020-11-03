@@ -1,1 +1,10 @@
-/lustre/user/liclab/zhangc/Taolab/xiaohuangli/ATAC_OE_ATF3/peaks/macs.sh
+# $1: bam
+# $2: out
+
+for i in `ls ../align/*.sort.rmdup.bam`
+do
+{
+	b=`basename $i`
+	macs14 -t $i -f BAM -g hs -n ${b/.sort.rmdup.bam/} -w  --nolambda --nomodel -S
+}&
+done
